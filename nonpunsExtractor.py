@@ -8,11 +8,9 @@ Created on Sat Apr 25 21:48:14 2015
 """ 
 							NON-PUNS HOMONYMS CREATION
 				
-"""	
-import os		
+"""		
 from urllib import urlopen #To save information in a URL
 import re   #Import regular expression library (Regex)
-import numpy as np
 
 """ -----------------------------Definitions------------------------------- """
 
@@ -22,8 +20,8 @@ def urlSave(url):   #Will save the information in a URL
 
 """ -----------------------------Declarations------------------------------ """
 
-websiteSource1 = 'http://dictionary.reference.com/browse/'#Name of website to get the sentences
-websiteSource2 = 'http://www.thefreedictionary.com/'
+websiteSource = 'http://dictionary.reference.com/browse/'#Name of website to get the sentences
+websiteSource1 = 'http://www.thefreedictionary.com/' #Not used, but could be used. Need to change regex pattern
 
 homonymesFile = '/home/phc/Desktop/Dropbox/Hackapuns/hackapun/data/homophones.csv' #File containing the Homonymes
 fileNameOutput = '/home/phc/Desktop/Non_puns_List.txt' #File that will contain the non-pun sentences
@@ -48,7 +46,7 @@ for homo in homonymes:
 	
 	for word in words:
 		print word
-		url = websiteSource1 + word
+		url = websiteSource + word
 		webPage = urlSave(url)
 				
 			
@@ -57,7 +55,7 @@ for homo in homonymes:
 		
 		sentences = re.findall(exPat,webPage.read())
 			
-		if any(sentences): #Only uses webpages that contains examples
+		if any(sentences): #Only uses webpages that contains ex
 			for sentence in sentences:
 				if len(sentence[1]) >=25: #sentences with more than 25 carachters
 					if len(re.findall('<.*',sentence[1])) == 0:
