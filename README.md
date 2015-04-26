@@ -1,28 +1,23 @@
 # hackapun
+
 big data week hackathon 
 
 ## objectives
 
 Find puns in texts that are not supposed to be funny.
 
-## How do we do it?
-
 Make a classifier -> pun / no-pun
 
-We need to pre-process a corpus.
+## How do we do it?
 
-* Tokenize words in english
-* POS tagging
-* lemmatizing
-
-
-### Machine learning?
-
-* What makes a phrase funny?
 * What makes a pun?
+A pun is defined by Webster as "the humorous use of a word, or of words which
+are formed or sounded alike but have different meanings, in such a way as to
+play on two or more of the possible applications; a play on words."
 
 
 ## Tasks
+
 
 * Gather data
 ** puns sentences
