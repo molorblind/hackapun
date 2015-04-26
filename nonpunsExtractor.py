@@ -61,8 +61,6 @@ for homo in homonymes:
 					if len(re.findall('<.*',sentence[1])) == 0:
 						allSentences.append(sentence[1]) 
 						NONpunsFile.write(sentence[1]+'\n') #Write in a txt files
-	
-		
 		
 		
 		
