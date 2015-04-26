@@ -4,4 +4,4 @@ class Homonyms:
         open("data/homophones.csv").read().split('\n')]
 
   def homonyms(self, word):
-    return [hs for hs in self.homs if any([h for h in hs if word in h])]
+    return [hs for hs in self.homs if any([h for h in hs if word == h])]
