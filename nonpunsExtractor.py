@@ -48,7 +48,7 @@ for homo in homonymes:
 	
 	for word in words:
 		print word
-		url = websiteSource + word
+		url = websiteSource1 + word
 		webPage = urlSave(url)
 				
 			
