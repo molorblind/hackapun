@@ -6,9 +6,11 @@ import argparse
 
 parser = argparse.ArgumentParser(description='download and process google files')
 parser.add_argument('letter',help='first letter of type')
+parser.add_argument('second_letters',help='letters to combine first letter with')
 
 args = parser.parse_args()
 letter = args.letter
+second_letters = args.second_letters
 
 def addPair(result, word1, word2, score):
         i1 = word1.find("_")
@@ -24,7 +26,8 @@ def addPair(result, word1, word2, score):
         elif not word2 in result[word1]:
             result[word1][word2] = score
         else: result[word1][word2] += score
-os.chdir("../pydata")
+		
+os.chdir("./pydata")
 
 def parse(name):
     print("PARSING", name)
@@ -58,6 +61,10 @@ def parse(name):
             l0 = len(ngram[0])
             l1 = len(ngram[1])
             l2 = len(ngram[2])
+			
+            valid0 = valid(ngram[0])
+            valid1 = valid(ngram[1])
+            valid2 = valid(ngram[2])
 
             match_count = int(line[2])
 
@@ -85,5 +92,8 @@ def parse(name):
     call(["rm", "googlebooks-eng-all-3gram-20120701-"+name])
     #print(result)
 
-for c in "_abcdefghijklmnopqrstuvwxyz":
+if second_letters == "all":
+	second_letters = "_abcdefghijklmnopqrstuvwxyz"
+	
+for c in second_letters:
     parse(letter+c)
